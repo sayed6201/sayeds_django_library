@@ -1,6 +1,6 @@
 
 ==========================================
-Dictionary
+Dictionary code
 ==========================================
 monthly_challenges_dictioinary = {
     "jan": "Eat no meat for entire month",
