@@ -10,7 +10,10 @@ Multi line String
 
 
 ==========================================
-Variable pushing into String 
+Interpolation syntax
 ==========================================
 
+#interpolation in python -> f"{ var }"
 list_items += f"<li><a href=\"{month_path}\">{capitalized_months}</a></li>"
+
+#interpolation in DLT template with -> {{}}
