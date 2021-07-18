@@ -5,9 +5,9 @@ App Setup:
 
 RUN: python manage.py startapp appname -> to create APP
 
----------------------------------------------------------------
+--------------
 app/urls.py
----------------------------------------------------------------
+--------------
 	from django.urls import path
 	from . import views # . -> from same folder
 	urlpatterns = [
@@ -15,16 +15,18 @@ app/urls.py
 	    path("feb", views.feb)
 	]
 
----------------------------------------------------------------
+--------------------
 project/urls.py
----------------------------------------------------------------
+---------------------
 	from django.contrib import admin
 	from django.urls import path, include
 	urlpatterns = [
+    
 	    path('admin/', admin.site.urls),
+
 	    #including the challenges app urls to project
 	    path("challenges/", include("challenges.urls"))
-]
+    ]
 
 
 ===============================================================
@@ -37,17 +39,17 @@ Template Setup:
 	* so add them in TEMPLATES -> dirs
 ===============================================================
 
----------------------------------------------------------------
+--------------
 * Step1: 
----------------------------------------------------------------
+--------------
 
 Create-> template/appname/yourhtmlfile.html 
 example: template/challenges/challenges.html 
 
 
----------------------------------------------------------------
+-------------------
 * Step2: Register app in -> project/setting.py
----------------------------------------------------------------
+------------------
 # Application definition
 INSTALLED_APPS = [
     #Registering Aware of our app, now django can find tamplate

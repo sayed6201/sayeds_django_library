@@ -8,10 +8,17 @@ NOTE:
         {% include "challenges/includes/header.html" with active_page="index" %}
 
 * Variable display -> 
-        {{ month|title }}
+        1. Accessing variable:
+            {{ month|title }}
+
+        2. Accessing Dictionary:
+            <h3>{{ post.title }}</h3>        
 
 * String Interpolation:
-        <a href="/challenges/{{ month }}"></a>
+        1. <a href="/challenges/{{ month }}"></a>
+
+        2. Concate string from variable:
+            <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}" />
 
 * Block declaration -> 
         {% block content %}
@@ -19,8 +26,10 @@ NOTE:
         {% endblock  %}
 
 * Filter text modification:
-        <h1>{{ month|title }}'s Challenge</h1>
-        
+        1. <h1> {{ month|title }} Challenge </h1>
+        2. <h2> {{ post.content|linebreaks }} <h2>
+        3. <div>Last updated on <time> {{ post.date|date:"d M y" }}</time></div>
+
 
 * Conditional Tags: 
         {% if text is not None %}
@@ -30,12 +39,19 @@ NOTE:
         {% endif %}
 
 *LOOP Tags: 
-        {% for month in month_list %}
-            {% comment %} 
-            <li><a href="/challenges/{{ month }}">{{ month|title }}</a></li> 
-            {% endcomment %}
-            <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>
-        {% endfor %}
+        1.For Loop with include: 
+            # included template will have access to all the variables 
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+
+        2.For Loop:
+            {% for month in month_list %}
+                {% comment %} 
+                <li><a href="/challenges/{{ month }}">{{ month|title }}</a></li> 
+                {% endcomment %}
+                <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>
+            {% endfor %}
 
 
 ==========================================
