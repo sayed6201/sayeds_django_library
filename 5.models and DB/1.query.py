@@ -66,8 +66,10 @@ DELETE
 >>> LOR.delete()
 	(1, {'book_outlet.Book': 1})
 
->>> Book.objects.all() 
-	<QuerySet [<Book: JK Rowling 5>]>>>>
+
+>>> Book.objects.all().delete()
+	(5, {'book_outlet.Book': 5})
+
 
 
 ===============================================================

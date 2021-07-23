@@ -58,3 +58,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("blog.urls"))
 ]
+
+
+===============================================================
+Redirecting from model.py
+===============================================================
+    #======================================================
+    # You can call the method from template
+        # useage in template: <a href="{{ book.get_absolute_url }}"> </a>
+    #======================================================
+    def get_absolute_url(self):
+        return reverse("detail-page", args={self.slug})
