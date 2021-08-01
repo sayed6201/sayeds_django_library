@@ -10,6 +10,8 @@
             # published_countries = models.ManyToManyField(Country)
 
      NOTE: See related_models.py for detail. 
+
+     https://docs.djangoproject.com/en/3.2/topics/db/examples/
 #============================================================================================================	
 
 
