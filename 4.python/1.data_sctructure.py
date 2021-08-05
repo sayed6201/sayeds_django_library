@@ -49,14 +49,35 @@ def starting_page(request):
         "posts": latest_posts
     })
     
+
+
+
+
+
+
 ==========================================
 List
 ==========================================
-#Traverse
+
+----------------------------
+#Traverse with for loop
+----------------------------
  for month in months:
         capitalized_months = month.capitalize()
         month_path = reverse("month-challenge", args=[month])
         list_items += f"<li><a href=\"{month_path}\">{capitalized_months}</a></li>"
 
+
+
+----------------------------
+ #Traaversing a List with single line for loop
+----------------------------
+#all_posts = [
+# {}, {}
+# ]
+    idetifier_post = next( post for post in all_posts if post['slug'] == slug)
+
+----------------------------
 #length checking
+----------------------------
 len(months):

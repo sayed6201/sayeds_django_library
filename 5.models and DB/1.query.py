@@ -156,6 +156,8 @@ from django.db.models import Avg, Max, Min
 
    books = Book.objects.all().order_by("-rating") # - -> orders descending order
 
+   latest_posts = Post.objects.all().order_by("-date")[:3] #Desc order, django optimizes the query, and converts one query, does not fetch all data
+
    num_booka = books.count
 
    ratings_dic = books.aggregate(Avg("rating"), Min("rating")) # returns dcitionary with keys: rating__avg, rating__min

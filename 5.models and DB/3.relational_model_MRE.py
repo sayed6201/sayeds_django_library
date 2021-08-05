@@ -8,6 +8,15 @@ from django.utils.text import slugify
 from typing import Iterable, Optional
 
 
+# ===============================================================
+# Database and model Commands
+# ===============================================================
+# Run: python manage.py makemigrations -> to create the table from the table
+# Run: python manage.py migrate
+# RUN: python manage.py shell -> to run Shell
+
+
+
 #============================================================================================================
 #Relation Explanation
     #1) Book (M-1) Author -> One author can write many books

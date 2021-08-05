@@ -20,6 +20,9 @@ NOTE:
         2. Concate string from variable:
             <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}" />
 
+        3. Mailto:
+            <address>By  <a href="mailto:{{post.author.email}}"> {{ post.author }} </a></address>
+
 * Block declaration -> 
         {% block content %}
             # your code goes here in child templates

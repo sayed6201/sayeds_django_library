@@ -13,4 +13,7 @@
 	#Single Line forloop
 -----------------------------------
 
+#all_posts = [
+# {}, {}
+# ]
 	idetifier_post = next( post for post in all_posts if post['slug'] == slug)

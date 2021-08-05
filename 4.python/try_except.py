@@ -12,3 +12,16 @@ def monthly_challenge(request, month):
         return HttpResponse(response_data)
     except:
         return HttpResponseNotFound("<h1>Not supported</h1>")
+
+
+
+==========================================
+try except shortcut: 
+	get_object_or_404
+	get_list_or_404
+==========================================
+idetifier_post = get_object_or_404(Post.objects.get(slug = slug))
+
+    return render(request, "blog/post-detail.html", {
+        "post" : idetifier_post
+    })

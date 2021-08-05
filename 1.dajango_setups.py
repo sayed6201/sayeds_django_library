@@ -1,8 +1,32 @@
 ===============================================================
+DJANGO INSTALL:
+===============================================================
+    Goto: python.org
+    * Download latest python 
+    * run: python or python3
+    * run: python3 -m pip install Django |or| python -m pip install Django -> if single version of python is installed
+    * run: django-admin -> to check if it’s installed
+
+    ----------------------------------------------------------------
+    Setting Up Development Environment
+    ----------------------------------------------------------------
+    * Install VS code
+    * Extensions: python, pylance (autocompletion)
+
+
+===============================================================
 App Setup:
 ===============================================================
 
+RUN: django-admin startproject myprojectname -> to create project
+
 RUN: python manage.py startapp appname -> to create APP
+-----------------------------------
+Local Deployment:
+-----------------------------------
+    • Open terminal in VS code to run command inside the project foledr
+    • Run: python3 manage.py runserver -> 
+        will who localhost link, this is a continuous command and will keep running press ctrl + c to end the server
 
 --------------
 app/urls.py
