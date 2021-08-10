@@ -1,0 +1,109 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your review</title>
+
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+</head>
+<body>
+
+    <form action="/" method="POSt">
+    {% comment %} ======================================================================================
+        djago creates the token and validates it in the server,
+        the csrf token inficates the request is from actual server,
+        token changes every time the page is reloaded, 
+        server only accepts requests with valid token 
+    ====================================================================================== {% endcomment %}
+        {% csrf_token %} 
+    
+
+    
+
+    {% comment %} ======================================================================================
+       Html form, 
+        * Does not require to create App/forms.py  
+        * You can output errors manually by checking in view.py using a flag -> has_error = True
+    ====================================================================================== {% endcomment %}
+        {% comment %} 
+            <label for="username">Your name</label>
+            <input id="username" name="username" type="text"> 
+        
+        {% if has_error %}
+            <p>Invalid Form - Please enter your name</p>
+        {% endif %} 
+        
+        {% endcomment %}
+
+
+    {% comment %} ======================================================================================
+       Normal form, 
+        * Create App/forms.py  and define every field there with error, label etc
+        * Auto validation and display in views.py, no need to manually check
+        * forms.py will place label and field here, no need of label and input tag 
+        * Simple place -> {{form}} 
+    ====================================================================================== {% endcomment %}
+        
+        {% comment %} 
+        {{form}} 
+        {% endcomment %}
+
+
+
+        {% comment %} -----------------------------------------------------------------------------------
+            accessig every fields 
+                *You can access access every single field and modify according to your need
+        ----------------------------------------------------------------------------------- {% endcomment %}
+
+        {% comment %} <div class="form-control {% if form.user_name.errors %}errors{% endif %} ">
+            {{form.user_name.label_tag}}
+            {{form.user_name}}
+            {{form.user_name.errors}}
+        </div>
+
+        <div class="form-control {% if form.review_text.errors %}errors{% endif %} ">
+            {{form.review_text.label_tag}}
+            {{form.review_text}}
+            {{form.review_text.errors}}
+        </div>
+
+        <div class="form-control {% if form.rating.errors %}errors{% endif %} ">
+            {{form.rating.label_tag}}
+            {{form.rating}}
+            {{form.rating.errors}}
+        </div> {% endcomment %}
+
+
+
+        {% comment %}  -----------------------------------------------------------------------------------
+            accessig every fields with forloop
+         ----------------------------------------------------------------------------------- {% endcomment %}
+        
+        {% for field in form %}
+        <div class="form-control {% if field.errors %}errors{% endif %} ">
+            {{field.label_tag}}
+            {{field}}
+            {{field.errors}}
+        </div>
+
+        {% endfor %}
+
+
+        
+
+        {% comment %} ======================================================================================
+        Button Types
+            *does not send to server
+            *<button type = "button" >Send</button> 
+        ====================================================================================== {% endcomment %}
+        <button type = "submit" >submit</button>
+
+    </form>
+
+</body>
+</html>

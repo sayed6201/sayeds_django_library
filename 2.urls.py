@@ -42,6 +42,12 @@ urlpatterns = [
     #Slug
     #============================================
     path("post/<slug:slug>", views.post_detail, name="post-detail-page") #/posts/my-first-post, slug fotmate 
+
+
+    #=========================================================
+    #vIEW AS A CLASS
+    #=========================================================
+    path('', views.ReiewView.as_view()),
 ]
 
 
