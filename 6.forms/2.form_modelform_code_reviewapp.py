@@ -2,7 +2,6 @@
 App/forms.py
 ========================================================================
 
-
 from django import forms
 from django.forms import fields
 from .models import Review
@@ -42,7 +41,7 @@ from .models import Review
 
 
 #=================================================================
-# Moswl Form 
+# Model Form 
     # Links model attributes with form fields
     # Use ' class Meta: ' to customize the labels, erros,
 #=================================================================
@@ -52,7 +51,7 @@ class ReviewForm(forms.ModelForm):
         # fields = ['user_name', 'review_text', 'rating']
         fields = "__all__" #creates form fields for all fields 
 
-        # exclude = ['owner_comment'] #if you only want to exclude
+        # exclude = ['owner_comment'] #if you only want to exclude any fields from the template
 
         labels = {
             "user_name" : "Youe Name",
@@ -66,26 +65,3 @@ class ReviewForm(forms.ModelForm):
                 "max_length" : "Please enter a shorter name"
             },
         }
-
-
-
-
-
-
-
-
-
-
-
-
-========================================================================
-App/models.py
-========================================================================
-from django.db import models
-
-# Create your models here.
-
-class Review(models.Model):
-    user_name = models.CharField(max_length=100)
-    review_text = models.TextField(max_length=200)
-    rating = models.IntegerField()

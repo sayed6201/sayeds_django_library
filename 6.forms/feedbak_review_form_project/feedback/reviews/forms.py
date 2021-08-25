@@ -37,7 +37,7 @@ from .models import Review
 
 
 #=================================================================
-# Moswl Form 
+# Model Form 
     # Links model attributes with form fields
     # Use ' class Meta: ' to customize the labels, erros,
 #=================================================================
@@ -47,7 +47,7 @@ class ReviewForm(forms.ModelForm):
         # fields = ['user_name', 'review_text', 'rating']
         fields = "__all__" #creates form fields for all fields 
 
-        # exclude = ['owner_comment'] #if you only want to exclude
+        # exclude = ['owner_comment'] #if you only want to exclude any fields from the template
 
         labels = {
             "user_name" : "Youe Name",

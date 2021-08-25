@@ -10,5 +10,11 @@ urlpatterns = [
     #vIEW AS A CLASS
     #=========================================================
     path('', views.ReiewView.as_view()),
-    path('thank-you', views.thank_you),
+    path('thank-you', views.ThankYouView.as_view()),
+    path('reviews', views.ReviewsListView.as_view()),
+
+    #------------------------------------------------
+    #<int:pk> -> Primary key
+    #------------------------------------------------
+    path('review/<int:pk>', views.SingleReviewView.as_view()),
 ]
