@@ -1,6 +1,6 @@
-===============================================================
+==============================================================================================================================
 DJANGO INSTALL:
-===============================================================
+==============================================================================================================================
     Goto: python.org
     * Download latest python 
     * run: python or python3
@@ -14,9 +14,11 @@ DJANGO INSTALL:
     * Extensions: python, pylance (autocompletion)
 
 
-===============================================================
+
+
+==============================================================================================================================
 App Setup:
-===============================================================
+==============================================================================================================================
 
 RUN: django-admin startproject myprojectname -> to create project
 
@@ -52,7 +54,52 @@ project/urls.py
     ]
 
 
-===============================================================
+
+
+==============================================================================================================================
+FILE UPLOAD SETUP:
+    * FILE STOED DIR -> BASE_DIR / "uploads" / "images"
+==============================================================================================================================
+------------------------------------
+* Step1: In Project > Settings.py add ->
+------------------------------------
+
+            MEDIA_ROOT = BASE_DIR / "uploads"
+            MEDIA_URL = "/user-media/"
+
+
+------------------------------------
+* Step2: In App > models.py add ->
+------------------------------------
+image = models.ImageField(upload_to="images") 
+
+
+
+------------------------------------
+* Step3: In App > urls.py add ->
+------------------------------------
+from django.contrib import admin
+from django.urls import path, include
+
+#---------------------------------------------
+#Fileupload setup imports
+#---------------------------------------------
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("" ,include("reviews.urls")),
+    path("profiles/" ,include("profiles.urls"))
+
+#You will need to give the files location and your url below 
+        # to make it accessible in the browser
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+==============================================================================================================================
 Template Setup:
 ---------------
 * Django can auto detect 'Template' folder in app level, 
@@ -60,7 +107,7 @@ Template Setup:
 	* App name is in INSTALLED_APPS
 * Django can not auto detect 'Template' folder in project level, 
 	* so add them in TEMPLATES -> dirs
-===============================================================
+==============================================================================================================================
 
 --------------
 * Step1: 
@@ -114,14 +161,14 @@ TEMPLATES = [
 
 
 
-==========================================================
+==============================================================================================================================
 CSS Setup:
 ---------------
 * Django can auto detect 'static' folder in app level, 
 	
 * Django can not auto detect 'static' folder in project level, 
 	* so add it in -> STATICFILES_DIRS
-==========================================================
+==============================================================================================================================
 
 #Created by me to introduce global static folder to Django
 STATICFILES_DIRS = [

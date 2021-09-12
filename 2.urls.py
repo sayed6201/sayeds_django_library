@@ -13,12 +13,21 @@ urlpatterns = [
     # path("jan", views.jan), 
     # path("feb", views.feb),
 
+
+
     #============================================
     #dynamic placeholder, month could be jan, feb
             ##dynamic placeholder type-> str, int
     #============================================
     path("<int:month>", views.monthly_challenge_bynum), 
     #path("<str:month>", views.monthly_challenge), 
+
+    #------------------------------------------------
+    #<int:pk> -> Primary key
+    #------------------------------------------------
+    path('review/<int:pk>', views.SingleReviewView.as_view()),
+
+
 
     #============================================
     #named urls
@@ -31,6 +40,8 @@ urlpatterns = [
     #============================================
     path("<str:month>", views.monthly_challenge, name="month-challenge"), 
 
+
+
     #============================================
     #Creating a dynamic challnege app index page
     #============================================
@@ -42,6 +53,7 @@ urlpatterns = [
     #Slug
     #============================================
     path("post/<slug:slug>", views.post_detail, name="post-detail-page") #/posts/my-first-post, slug fotmate 
+
 
 
     #=========================================================
@@ -63,7 +75,11 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("blog.urls"))
-]
+
+
+#You will need to give the files location and your url below 
+        # to make it accessible in the browser
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 ===============================================================
